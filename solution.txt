@@ -1,0 +1,11 @@
+Solution:
+
+I had experience from a previous project with buffer overflows on my local machine, but with this vulnerable server being remote,
+I had to approach it a little differently. We had access to the source code for server.c, so I downloaded it and its Makefile then started
+testing locally. After I found the right spot in memory to put the nop sled and the shellcode, I then turned it into a script (buffscript.py)
+and started assessing how I could use it on the server where I could not debug it using gdb as before. The server only allowed one thing
+to be typed before it usually echoed and kicked you out. This meant that each time I had to connect to the server and then try a new spot
+in memory, incrementing until I was connected. After finishing the script, I opened two separate terminals. In termial one, i called 
+nc -lvp **** and on the second terminal I ran my script. After about a minute, the right spot in memory was found and I was able to 
+connect in the first terminal. Since it connected, the script popped open a shell inside the terminal and I was able to call /bin/grade
+to get the hash I needed because I was executing at a higher privlege.
