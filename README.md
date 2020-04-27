@@ -1,14 +1,21 @@
 # Remote-Buffer-Overflow
 Extension from the project Buffer Overflow to now work on a remote vulnerable server. 
 
-# Introduction
+### Introduction
 
 An exploit (from the same word in the French language, meaning "achievement", or "accomplishment") is a piece of software, a chunk of data, or sequence of commands that take advantage of a bug, glitch or vulnerability in order to cause unintended or unanticipated behavior to occur on computer software, hardware, or something electronic (usually computerized). This frequently includes such things as violently gaining control of a computer system or allowing privilege escalation or a denial of service attack. There are several methods of classifying exploits. The most common is by how the exploit contacts the vulnerable software. A 'remote exploit' works over a network and exploits the security vulnerability without any prior access to the vulnerable system. This challenge aims to give students some hands-on experience with remote exploits by allowing them to attack a remote service that has a vulnerability.
 
-# Storyline
+### Detailed Description
 
-Part of your last job sure wasn't easy and you spent quite a bit of time trying to break the vulnX applications. Well, as you know well by now: "No pain, no gain" :-) You have only had a couple of assignments at the company, but your performance until now has been glorious. Not only the banks love you, but the upper management (i.e., guys who buy the latest computing gadgets and only read e-mail and use Word on their 34 inch LCDs ;-)) are deeply impressed too. As a first step, you are promoted to "chief security analyst" ;-) Your next assignment takes you to a bank that would like to make sure that their online banking systems are safe. They have been using a software system that was produced by a small start up company. The start up company, named SoftwareForFoolsWhoDontCareAboutSecurity, claims that this software is perfectly safe and that it does not pose a threat to the security of the bank. The technical guy in the bank, who is your friend, is not that sure and asks you to do some security analysis of the software. They would like to see if it is possible to "own" the server remotely. Remote exploits are generally thought to be difficult and all bets are against you. Hmmmmm... Many years ago, you exploited a remote server in a Northeastern University course called SoftSecVuln (darn, or was it SecSoftVuln?)... You can't really remember, but not that important you think. You wonder what happened to the annoying funny looking guy who was teaching it... When was the last time the course was held in Boston before the guy was arrested and disappeared? 2013? You take a sip from your cup of coffee (little milk, one sugar of course ;-)) and order a pizza and 1 liter of Coke Zero... "This might take a couple of hours" you think... or so you hope ;-)
+The task was to exploit a remote vulnerability on a server that is running on the machine 'gangsta' on port ****. The objective was to 
+create and inject an appropriate shellcode into the application and to take over control of its execution. The vulnerable server has its
+set-guid (i.e. set group identification) bit enabled. The server has a simple buffer overflow vulnerability. The main difference to 
+standard (buffer overflow)[https://github.com/allenwest24/Buffer-Overflow], however, is that the server is remote and you do not get
+much feedback from it once you send packets to it. 
 
-# Detailed Description
-
-Your task in this challenge is to exploit a remote vulnerability on a server that is running on the machine gangsta on port ****. Your objective is to create and inject an appropriate shellcode into the application and to take over control of its execution. The vulnerable server has its set-guid (i.e. set group identification) bit enabled just like in previous challenges. The server has a simple buffer overflow vulnerability. The main difference to the previous challenges, however, is that the server is remote and you do not get much feedback from it once you send packets to it. 
+### Contents
+- buffscript.py - The exploit script.
+- server.c - The vulnerable server source code.
+- solution.txt - My strategy for approaching this challenge.
+- terminal1.bash - The terminal session that used netcat to observe the port I specified in buffscript.py
+- terminal2.bash - The terminal session where I executed buffscript.py
